@@ -1,0 +1,45 @@
+.help-block-error
+{
+    color: red;
+}
+
+.help-block
+{
+    font-size: 11px;
+}
+
+.btn-primary:hover
+{
+    background-color:darkorange;
+}
+
+.btn-primary:active,focus,visited
+ {
+     background-color:#C87D3C;
+ }
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle
+{
+    background-color:darkorange;
+}
+
+.custom-control-input {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    width: 1rem;
+    height: 1.25rem;
+    opacity: 0;
+}
+
+.custom-control {
+    position: relative;
+    z-index: 1;
+    display: block;
+    min-height: 1.5rem;
+    padding-left: 1.5rem;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+    print-color-adjust: exact;
+}
+
