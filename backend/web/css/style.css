@@ -10,12 +10,12 @@
 
 .btn-primary:hover
 {
-    background-color:darkorange;
+    background-color:#b90101;
 }
 
 .btn-primary:active,focus,visited
  {
-     background-color:#C87D3C;
+     background-color:#8f283c;
  }
 
 .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle

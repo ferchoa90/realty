@@ -39,15 +39,15 @@ $fieldOptions2 = [
                 <div class="p-4 row">
                     <div class="col-12 text-center">
                         <div class="d-flex justify-content-center">
-                            <img src="/frontend/web/images/BABELATINO.svg" class=" w-25" />
+                            <img src="/backend/web/images/general/Logo-Realty-Ecuador.png" class=" w-25" />
                         </div>
                     </div>
-                  <div class=" col-6 p-3">
+                  <div class=" col-6 p-1">
                     <div class="d-flex align-items-center bg-light mb-3" style="height:100%; background-color: white !important;">
                       <img src="/frontend/web/images/keylogin.fw.png" class="w-100" />
                     </div>
                   </div>
-                  <div class=" col-6 p-4">
+                  <div class=" col-6 p-2">
                     <!-- <div class="text-center">
                       <h1 class="h4 text-gray-900 mb-4">Bienvenido</h1>
                     </div> -->
