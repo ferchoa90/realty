@@ -9,14 +9,7 @@ use common\models\Slider;
 use common\models\Colaboradores;
 use common\models\Programas;
 
-//$this->title = ' Clases y módulos';
-//$this->params['breadcrumbs'][] = $this->title;
-$slider= Slider::find()->where(["estatus"=>"ACTIVO", "isDeleted"=>0])->orderby(['orden'=>SORT_ASC])->all();
-$colaboradores= Colaboradores::find()->where(["estatus"=>"ACTIVO", "isDeleted"=>0])->orderby(['orden'=>SORT_ASC])->all();
-$programas= Programas::find()->where(["estatus"=>"ACTIVO", "isDeleted"=>0])->orderby(['fechacreacion'=>SORT_DESC])->all();
-
-
-$script = <<< JS
+ $script = <<< JS
 $(document).ready(function () {
     jQuery(document).ready(function ($) {
     });
@@ -24,625 +17,677 @@ $(document).ready(function () {
 JS;
 $this->registerJs($script, View::POS_END);
 ?>
-
-<!--// Main Banner \\-->
-    <div class="wm-main-banner">
-
-        <!--// Banner \\-->
-        <div class="wm-banner">
-            <?php $cont=0; ?>
-            <?php foreach($slider as $key => $value ){ ?>
-            <?php $cont++; ?>
-            <div class="wm-banner-slide">
-                <span class="wm-banner-layer"></span>
-                <img src="images/slider/<?= $value->image ?>" alt="">
-                <div class="wm-caption  wm-leftcaption">
-                    <h1 style="font-size: 30px;"><?= $value->titulo ?></h1>
-                    <h3 style="font-size: 14px; width: 40%;"><?= $value->extracto ?></h3>
-                    <div class="clearfix"></div>
-                    <?php if ($value->boton1){ ?>
-                        <a href="#" class="wm-default-btn"><span><?= $value->textob1 ?></span></a>
-                    <?php } ?>
-                    <?php if ($value->boton2){ ?>
-                        <a href="#" class="wm-default-btn"><span><?= $value->textob1 ?></span></a>-->
-                    <?php } ?>
-                </div>
-            </div>
-            <?php } ?>
-            <!--<div class="wm-banner-slide">
-                <span class="wm-banner-layer"></span>
-                <img src="images/extra-images/banner-2.jpg" alt="">
-                <div class="wm-caption wm-leftcaption">
+<!-- Begin Main -->
+<div role="main" class="main">
+    <!-- Begin Main Slide -->
+    <section class="main-slide">
+        <div id="owl-main-slide" class="owl-carousel pgl-main-slide" data-plugin-options='{"autoPlay": true}'>
+            <div class="item" id="item1"><img src="<?= URL::base() ?>/images/slides/slider1.jpg" alt="Photo" class="img-responsive">
+                <div class="item-caption">
                     <div class="container">
-                        <h1>Music is the poetry of the air</h1>
-                        <div class="clearfix"></div>
-                        <a href="#" class="wm-default-btn"><span>Check our events</span></a>
-                        <a href="#" class="wm-default-btn"><span>Purchase tickets</span></a>
+                        <div class="property-info">
+									<span class="property-thumb-info-label">
+										<span class="label price">$13,000.00</span>
+										<!--<span class="label"><a href="property-detail.html" class="btn-more">More Detail</a></span>-->
+									</span>
+                            <div class="property-thumb-info-content">
+                                <h2><a href="property-detail.html">LOTICACIÓN ARCADIA</a></h2>
+                                <p>Terreno de oportuniadad ubicado en Zhucay - La Troncal. </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="wm-banner-slide">
-                <span class="wm-banner-layer"></span>
-                <img src="images/extra-images/2.jpg" alt="">
-                <div class="wm-caption wm-rightcaption">
+            <!--<div class="item" id="item2"><img src="<?= URL::base() ?>/images/slides/slider2.jpg" alt="Photo" class="img-responsive">
+                <div class="item-caption">
                     <div class="container">
-                        <h1>The Best Music Band Ever</h1>
-                        <div class="clearfix"></div>
-                        <a href="#" class="wm-default-btn"><span>Check our events</span></a>
-                        <a href="#" class="wm-default-btn"><span>Purchase tickets</span></a>
+                        <div class="property-info">
+									<span class="property-thumb-info-label">
+										<span class="label price">$358,000</span>
+										<span class="label"><a href="property-detail.html" class="btn-more">More Detail</a></span>
+									</span>
+                            <div class="property-thumb-info-content">
+                                <h2><a href="property-detail.html">Presidential Parcel Frames Command Views of Mt. Rushmore</a></h2>
+                                <p>Sed perspiciatis unde omnisiste natus error voluptatem remopa accusantium doloremque laudantium, totam rem aperiam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item" id="item3"><img src="<?= URL::base() ?>/images/slides/slider3.jpg" alt="Photo" class="img-responsive">
+                <div class="item-caption">
+                    <div class="container">
+                        <div class="property-info">
+									<span class="property-thumb-info-label">
+										<span class="label price">$358,000</span>
+										<span class="label"><a href="property-detail.html" class="btn-more">More Detail</a></span>
+									</span>
+                            <div class="property-thumb-info-content">
+                                <h2><a href="property-detail.html">Alpine Rd, Stockton, CA 95215</a></h2>
+                                <p>Sed perspiciatis unde omnisiste natus error voluptatem remopa accusantium doloremque laudantium, totam rem aperiam.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>-->
         </div>
-        <!--// Banner \\-->
+    </section>
+    <!-- End Main Slide -->
 
-        <!--// Player \\-->
-        <div class="wm-banner-player">
-            <div class="container">
-                <div id="jquery_jplayer_2" class="jp-jplayer"></div>
-                <div id="jp_container_2" class="jp-audio" role="application" aria-label="media player">
-                    <div class="jp-type-playlist">
-                        <div class="jp-playlist">
-                            <ul>
-                                <li>&nbsp;</li>
-                            </ul>
-                        </div>
-                        <div class="jp-gui jp-interface">
-                            <div class="jp-controls">
-                                <span class="wm-bgcolor-one jp-previous"><i class="flaticon-arrows-1"></i></span>
-                                <span class="jp-play"><i class="fa fa-pause"></i> <i class="fa fa-play"></i></span>
-                                <span class="wm-bgcolor-one jp-next"><i class="flaticon-arrows-1"></i></span>
-                                <span class="jp-stop"><i class="flaticon-circle"></i></span>
-                            </div>
-                            <div class="wm-player-wrap">
-                                <div id="current-track1" class="song-title">BABELATINO 419 - DE PREMIOS Y DE LIBROS</div>
-                                <div class="jp-time-holder">
-                                    <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
-                                    <div class="jp-duration" role="timer" aria-label="duration">/&nbsp;</div>
-                                </div>
-                                <div class="jp-progress">
-                                    <div class="jp-seek-bar">
-                                        <div class="jp-play-bar"></div>
-                                    </div>
-                                </div>
-                                <div class="jp-toggles">
-                                    <span class="jp-shuffle"><i class="flaticon-arrows-2"></i></span>
-                                    <span class="jp-repeat"><i class="flaticon-arrows-3"></i></span>
-                                    <div class="wm-player-options">
-                                        <a href="#"><i class="flaticon-social"></i> 876</a>
-                                        <a href="#"><i class="flaticon-music"></i> 986</a>
-                                        <a href="#"><i class="flaticon-web"></i> 489</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#" class="wm-playlist-btn"><i class="flaticon-music-1"></i></a>
-                        </div>
+<!-- Begin Advanced Search -->
+<section class="pgl-advanced-search pgl-bg-light">
+    <div class="container">
+        <form name="advancedsearch">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    <div class="form-group">
+                        <label class="sr-only" for="property-status">Tipo de propiedad</label>
+                        <select id="property-status" name="property-status" data-placeholder="Property Status" class="chosen-select" tabindex="1">
+                            <option selected="selected" value="Property Status">Tipo de propiedad</option>
+                            <option value="sale">Venta</option>
+                            <option value="rent">Alquiler</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="form-group">
+                        <label class="sr-only" for="location">Location</label>
+                        <select id="location" name="location" data-placeholder="Location" class="chosen-select" tabindex="2">
+                            <option selected="selected" value="Location">Location</option>
+                            <option value="United States">United States</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="Afghanistan">Afghanistan</option>
+                            <option value="Aland Islands">Aland Islands</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="American Samoa">American Samoa</option>
+                            <option value="Andorra">Andorra</option>
+                            <option value="Angola">Angola</option>
+                            <option value="Anguilla">Anguilla</option>
+                            <option value="Antarctica">Antarctica</option>
+                            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Armenia">Armenia</option>
+                            <option value="Aruba">Aruba</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Azerbaijan">Azerbaijan</option>
+                            <option value="Bahamas">Bahamas</option>
+                            <option value="Bahrain">Bahrain</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="Barbados">Barbados</option>
+                            <option value="Belarus">Belarus</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Belize">Belize</option>
+                            <option value="Benin">Benin</option>
+                            <option value="Bermuda">Bermuda</option>
+                            <option value="Bhutan">Bhutan</option>
+                            <option value="Bolivia, Plurinational State of">Bolivia, Plurinational State of</option>
+                            <option value="Bonaire, Sint Eustatius and Saba">Bonaire, Sint Eustatius and Saba</option>
+                            <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                            <option value="Botswana">Botswana</option>
+                            <option value="Bouvet Island">Bouvet Island</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                            <option value="Brunei Darussalam">Brunei Darussalam</option>
+                            <option value="Bulgaria">Bulgaria</option>
+                            <option value="Burkina Faso">Burkina Faso</option>
+                            <option value="Burundi">Burundi</option>
+                            <option value="Cambodia">Cambodia</option>
+                            <option value="Cameroon">Cameroon</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Cape Verde">Cape Verde</option>
+                            <option value="Cayman Islands">Cayman Islands</option>
+                            <option value="Central African Republic">Central African Republic</option>
+                            <option value="Chad">Chad</option>
+                            <option value="Chile">Chile</option>
+                            <option value="China">China</option>
+                            <option value="Christmas Island">Christmas Island</option>
+                            <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Comoros">Comoros</option>
+                            <option value="Congo">Congo</option>
+                            <option value="Congo, The Democratic Republic of The">Congo, The Democratic Republic of The</option>
+                            <option value="Cook Islands">Cook Islands</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Cote D'ivoire">Cote D'ivoire</option>
+                            <option value="Croatia">Croatia</option>
+                            <option value="Cuba">Cuba</option>
+                            <option value="Curacao">Curacao</option>
+                            <option value="Cyprus">Cyprus</option>
+                            <option value="Czech Republic">Czech Republic</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Djibouti">Djibouti</option>
+                            <option value="Dominica">Dominica</option>
+                            <option value="Dominican Republic">Dominican Republic</option>
+                            <option value="Ecuador" selected>Ecuador</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Equatorial Guinea">Equatorial Guinea</option>
+                            <option value="Eritrea">Eritrea</option>
+                            <option value="Estonia">Estonia</option>
+                            <option value="Ethiopia">Ethiopia</option>
+                            <option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
+                            <option value="Faroe Islands">Faroe Islands</option>
+                            <option value="Fiji">Fiji</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="French Guiana">French Guiana</option>
+                            <option value="French Polynesia">French Polynesia</option>
+                            <option value="French Southern Territories">French Southern Territories</option>
+                            <option value="Gabon">Gabon</option>
+                            <option value="Gambia">Gambia</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="Gibraltar">Gibraltar</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Greenland">Greenland</option>
+                            <option value="Grenada">Grenada</option>
+                            <option value="Guadeloupe">Guadeloupe</option>
+                            <option value="Guam">Guam</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Guernsey">Guernsey</option>
+                            <option value="Guinea">Guinea</option>
+                            <option value="Guinea-bissau">Guinea-bissau</option>
+                            <option value="Guyana">Guyana</option>
+                            <option value="Haiti">Haiti</option>
+                            <option value="Heard Island and Mcdonald Islands">Heard Island and Mcdonald Islands</option>
+                            <option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                            <option value="Hungary">Hungary</option>
+                            <option value="Iceland">Iceland</option>
+                            <option value="India">India</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
+                            <option value="Iraq">Iraq</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="Isle of Man">Isle of Man</option>
+                            <option value="Israel">Israel</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Jamaica">Jamaica</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Jersey">Jersey</option>
+                            <option value="Jordan">Jordan</option>
+                            <option value="Kazakhstan">Kazakhstan</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="Kiribati">Kiribati</option>
+                            <option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
+                            <option value="Korea, Republic of">Korea, Republic of</option>
+                            <option value="Kuwait">Kuwait</option>
+                            <option value="Kyrgyzstan">Kyrgyzstan</option>
+                            <option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option>
+                            <option value="Latvia">Latvia</option>
+                            <option value="Lebanon">Lebanon</option>
+                            <option value="Lesotho">Lesotho</option>
+                            <option value="Liberia">Liberia</option>
+                            <option value="Libya">Libya</option>
+                            <option value="Liechtenstein">Liechtenstein</option>
+                            <option value="Lithuania">Lithuania</option>
+                            <option value="Luxembourg">Luxembourg</option>
+                            <option value="Macao">Macao</option>
+                            <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option>
+                            <option value="Madagascar">Madagascar</option>
+                            <option value="Malawi">Malawi</option>
+                            <option value="Malaysia">Malaysia</option>
+                            <option value="Maldives">Maldives</option>
+                            <option value="Mali">Mali</option>
+                            <option value="Malta">Malta</option>
+                            <option value="Marshall Islands">Marshall Islands</option>
+                            <option value="Martinique">Martinique</option>
+                            <option value="Mauritania">Mauritania</option>
+                            <option value="Mauritius">Mauritius</option>
+                            <option value="Mayotte">Mayotte</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Micronesia, Federated States of">Micronesia, Federated States of</option>
+                            <option value="Moldova, Republic of">Moldova, Republic of</option>
+                            <option value="Monaco">Monaco</option>
+                            <option value="Mongolia">Mongolia</option>
+                            <option value="Montenegro">Montenegro</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Morocco">Morocco</option>
+                            <option value="Mozambique">Mozambique</option>
+                            <option value="Myanmar">Myanmar</option>
+                            <option value="Namibia">Namibia</option>
+                            <option value="Nauru">Nauru</option>
+                            <option value="Nepal">Nepal</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="New Caledonia">New Caledonia</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="Nicaragua">Nicaragua</option>
+                            <option value="Niger">Niger</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="Niue">Niue</option>
+                            <option value="Norfolk Island">Norfolk Island</option>
+                            <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+                            <option value="Norway">Norway</option>
+                            <option value="Oman">Oman</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Palau">Palau</option>
+                            <option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option>
+                            <option value="Panama">Panama</option>
+                            <option value="Papua New Guinea">Papua New Guinea</option>
+                            <option value="Paraguay">Paraguay</option>
+                            <option value="Peru">Peru</option>
+                            <option value="Philippines">Philippines</option>
+                            <option value="Pitcairn">Pitcairn</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Puerto Rico">Puerto Rico</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Reunion">Reunion</option>
+                            <option value="Romania">Romania</option>
+                            <option value="Russian Federation">Russian Federation</option>
+                            <option value="Rwanda">Rwanda</option>
+                            <option value="Saint Barthelemy">Saint Barthelemy</option>
+                            <option value="Saint Helena, Ascension and Tristan da Cunha">Saint Helena, Ascension and Tristan da Cunha</option>
+                            <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                            <option value="Saint Lucia">Saint Lucia</option>
+                            <option value="Saint Martin (French part)">Saint Martin (French part)</option>
+                            <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+                            <option value="Saint Vincent and The Grenadines">Saint Vincent and The Grenadines</option>
+                            <option value="Samoa">Samoa</option>
+                            <option value="San Marino">San Marino</option>
+                            <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="Senegal">Senegal</option>
+                            <option value="Serbia">Serbia</option>
+                            <option value="Seychelles">Seychelles</option>
+                            <option value="Sierra Leone">Sierra Leone</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Sint Maarten (Dutch part)">Sint Maarten (Dutch part)</option>
+                            <option value="Slovakia">Slovakia</option>
+                            <option value="Slovenia">Slovenia</option>
+                            <option value="Solomon Islands">Solomon Islands</option>
+                            <option value="Somalia">Somalia</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option>
+                            <option value="South Sudan">South Sudan</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                            <option value="Sudan">Sudan</option>
+                            <option value="Suriname">Suriname</option>
+                            <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+                            <option value="Swaziland">Swaziland</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Syrian Arab Republic">Syrian Arab Republic</option>
+                            <option value="Taiwan, Province of China">Taiwan, Province of China</option>
+                            <option value="Tajikistan">Tajikistan</option>
+                            <option value="Tanzania, United Republic of">Tanzania, United Republic of</option>
+                            <option value="Thailand">Thailand</option>
+                            <option value="Timor-leste">Timor-leste</option>
+                            <option value="Togo">Togo</option>
+                            <option value="Tokelau">Tokelau</option>
+                            <option value="Tonga">Tonga</option>
+                            <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                            <option value="Tunisia">Tunisia</option>
+                            <option value="Turkey">Turkey</option>
+                            <option value="Turkmenistan">Turkmenistan</option>
+                            <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+                            <option value="Tuvalu">Tuvalu</option>
+                            <option value="Uganda">Uganda</option>
+                            <option value="Ukraine">Ukraine</option>
+                            <option value="United Arab Emirates">United Arab Emirates</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="United States">United States</option>
+                            <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                            <option value="Uruguay">Uruguay</option>
+                            <option value="Uzbekistan">Uzbekistan</option>
+                            <option value="Vanuatu">Vanuatu</option>
+                            <option value="Venezuela, Bolivarian Republic of">Venezuela, Bolivarian Republic of</option>
+                            <option value="Viet Nam">Viet Nam</option>
+                            <option value="Virgin Islands, British">Virgin Islands, British</option>
+                            <option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
+                            <option value="Wallis and Futuna">Wallis and Futuna</option>
+                            <option value="Western Sahara">Western Sahara</option>
+                            <option value="Yemen">Yemen</option>
+                            <option value="Zambia">Zambia</option>
+                            <option value="Zimbabwe">Zimbabwe</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="form-group">
+                        <label class="sr-only" for="property-types">Tipo</label>
+                        <select id="property-types" name="property-types" data-placeholder="Property Types" class="chosen-select" tabindex="3">
+                            <option selected="selected" value="Property Types">Tipo</option>
+                            <option value="residential">Lote</option>
+                            <option value="commercial">Terreno</option>
+                            <option value="land">Locales Comerciales</option>
+                            <option value="land">Casa</option>
+                            <option value="land">Departamento</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="form-group">
+                        <label class="sr-only" for="area-from">Área</label>
+                        <select id="area-from" name="area-from" data-placeholder="Area From" class="chosen-select" tabindex="4">
+                            <option selected="selected" value="Area From">Área</option>
+                            <option value="450">25 m2</option>
+                            <option value="350">50 m2</option>
+                            <option value="250">100 m2</option>
+                            <option value="150">150 m2</option>
+                            <option value="100">300 m2</option>
+                            <option value="50">1000 m2</option>
+                        </select>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--// Player \\-->
 
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    <div class="form-group">
+                        <label class="sr-only" for="search-bedrooms">Dormitorios</label>
+                        <select id="search-bedrooms" name="search-bedrooms" data-placeholder="Bedrooms" class="chosen-select" tabindex="5">
+                            <option selected="selected" value="Bedrooms">Dormitorios</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="5plus">5+</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="form-group">
+                        <label class="sr-only" for="search-bathrooms">Baños</label>
+                        <select id="search-bathrooms" name="search-bathrooms" data-placeholder="Bathrooms" class="chosen-select">
+                            <option selected="selected" value="Bathrooms">Baños</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="4plus">4+</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="form-group">
+                        <div class="row pgl-narrow-row">
+                            <div class="col-xs-6">
+                                <label class="sr-only" for="search-minprice">Precio desde</label>
+                                <select id="search-minprice" name="search-minprice" data-placeholder="Price From" class="chosen-select">
+                                    <option selected="selected" value="Price From">Precio desde</option>
+                                    <option value="0">$0</option>
+                                    <option value="25000">$20,000</option>
+                                    <option value="50000">$50,000</option>
+                                    <option value="75000">$75,000</option>
+                                    <option value="100000">$100,000</option>
+                                    <option value="150000">$150,000</option>
+                                    <option value="200000">$200,000</option>
+                                    <option value="300000">$300,000</option>
+                                    <option value="500000">$500,000</option>
+                                    <option value="750000">$750,000</option>
+                                    <option value="1000000">$1,000,000</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-6">
+                                <label class="sr-only" for="search-maxprice">Precio Hasta</label>
+                                <select id="search-maxprice" name="search-maxprice" data-placeholder="Price To" class="chosen-select">
+                                    <option selected="selected" value="Price To">Precio Hasta</option>
+                                    <option value="25000">$25,000</option>
+                                    <option value="50000">$60,000</option>
+                                    <option value="75000">$75,000</option>
+                                    <option value="100000">$100,000</option>
+                                    <option value="150000">$150,000</option>
+                                    <option value="200000">$200,000</option>
+                                    <option value="300000">$300,000</option>
+                                    <option value="500000">$500,000</option>
+                                    <option value="750000">$750,000</option>
+                                    <option value="1000000">$1,000,000</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-block btn-primary">Buscar</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
     </div>
-    <!--// Main Banner \\-->
+</section>
+<!-- End Advanced Search -->
 
-    <!--// Main Content \\-->
-    <div class="wm-main-content">
-
-        <!--// Main Section \\-->
-        <div class="wm-main-section wm-element-holder-full">
-            <div class="container-fluid wm-overflow-container">
-                <div class="row">
-
-                    <!--// Event Countdown \\-->
-                    <!--<div class="col-md-12 col-offset-2">
-                        <div class="wm-event-countdown">
-
-                            <div class="wm-event-countdown-title">
-                                <h2>Our Upcoming</h2>
-                                <h3>Events</h3>
-                            </div>
-
-                            <div class="wm-countdown-section">
-                                <h2>Upcoming Event @ Tennessee</h2>
-                                <div id="wm-countdown"></div>
-                            </div>
-                            <a href="#" class="wm-event-viewbtn"><span>View All</span></a>
-
+<!-- Begin Featured -->
+<section class="pgl-featured pgl-bg-grey">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 animation">
+                <div class="pgl-property featured-item">
+                    <div class="property-thumb-info">
+                        <div class="property-thumb-info-image">
+                            <img alt="" class="img-responsive" src="<?= URL::base() ?>/images/properties/property-featured-1.jpg">
                         </div>
-                    </div>-->
-                    <!--// Event Countdown \\-->
-
-                    <!--// Event ModrenGrid \\-->
-                    <!--<div class="col-md-12 col-offset-2">
-                        <div class="wm-modren-event">
-                            <ul>
-                                <li>
-                                    <figure><a href="#"><img src="images/extra-images/event-modren-1.jpg" alt=""></a>
-                                        <figcaption>
-                                            <div class="wm-event-title-caption">
-                                                <h2>24/03/16</h2>
-                                                <span>@ Tennessee</span>
-                                            </div>
-                                            <div class="wm-check-eventbtn"><a href="#">Check Out Event</a></div>
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure><a href="#"><img src="images/extra-images/event-modren-2.jpg" alt=""></a>
-                                        <figcaption>
-                                            <div class="wm-event-title-caption">
-                                                <h2>22/01/16</h2>
-                                                <span>@ Tennessee</span>
-                                            </div>
-                                            <div class="wm-check-eventbtn"><a href="#">Check Out Event</a></div>
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure><a href="#"><img src="images/extra-images/event-modren-3.jpg" alt=""></a>
-                                        <figcaption>
-                                            <div class="wm-event-title-caption">
-                                                <h2>23/04/16</h2>
-                                                <span>@ Wyoming</span>
-                                            </div>
-                                            <div class="wm-check-eventbtn"><a href="#">Check Out Event</a></div>
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure><a href="#"><img src="images/extra-images/event-modren-4.jpg" alt=""></a>
-                                        <figcaption>
-                                            <div class="wm-event-title-caption">
-                                                <h2>04/05/16</h2>
-                                                <span>@ North Carolina</span>
-                                            </div>
-                                            <div class="wm-check-eventbtn"><a href="#">Check Out Event</a></div>
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure><a href="#"><img src="images/extra-images/event-modren-2.jpg" alt=""></a>
-                                        <figcaption>
-                                            <div class="wm-event-title-caption">
-                                                <h2>23/05/16</h2>
-                                                <span>@ Oregon</span>
-                                            </div>
-                                            <div class="wm-check-eventbtn"><a href="#">Check Out Event</a></div>
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>-->
-                    <!--// Event ModrenGrid \\-->
-
-                    <!--// Promo Songs \\-->
-                    <!--<div class="col-md-12 col-offset-2">
-                        <div class="wm-promo-songs">
-                            <figure class="wm-promosongs-thumb"><a href="#"><img src="images/extra-images/music-beat-disk-1.png" alt=""></a>
-                                <figcaption>
-                                    <a href="#" title="Add To Cart Songs"><span><i class="flaticon-tool"></i></span></a>
-                                    <a href="#" title="Download Promo Songs"><span><i class="flaticon-interface"></i></span></a>
-                                </figcaption>
-                            </figure>
-                            <div class="wm-promosong-text">
-                                <div class="wm-promo-time">
-                                    <time datetime="2008-02-14 20:00">February 16,2016</time>
-                                    <ul>
-                                        <li><a href="#" class="flaticon-technology"></a></li>
-                                        <li><a href="#" class="flaticon-technology"></a></li>
-                                        <li><a href="#" class="flaticon-technology"></a></li>
-                                        <li><a href="#" class="flaticon-technology"></a></li>
-                                        <li><a href="#" class="flaticon-technology"></a></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="wm-text-inner">
-                                    <span>New Album</span>
-                                    <h2>Down To My Bad Habit</h2>
-                                    <div class="ec-app-btn">
-                                        <a href="https://itunes.apple.com/en/genre/ios/id36?mt=8"><img src="images/play-thumb1.png" alt=""></a>
-                                        <a href="https://play.google.com/store?hl=en"><img src="images/play-thumb2.png" alt=""></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                    <!--// Promo Songs \\-->
-
-                    <!--// Gallery Slider \\-->
-                    <div class="col-md-12 col-offset-2">
-                        <div class="wm-gallery-section">
-                            <div class="wm-fancy-title-one">
-                                <span>Nuestros</span>
-                                <h2>Programas</h2>
-                            </div>
-                            <div class="wm-gallery-slider gallery">
-                                <?php $cont=0; ?>
-                                <?php foreach($programas as $key => $value ){ ?>
-                                <?php $cont++; ?>
-                                <div class="wm-gallery-slide-layer">
-                                    <figure><a href="#"><img src="https://i.ytimg.com/vi/<?= $value->video ?>/hqdefault.jpg" alt=""></a>
-                                        <figcaption>
-                                            <ul>
-                                                <li><a href="#" class="flaticon-link"></a></li>
-                                                <li><a href="#" class="flaticon-shapes"></a></li>
-                                                <li class="wm-gallery-tags"><a title="" data-rel="prettyPhoto" href="https://youtu.be/<?= $value->video ?>">Video</a></li>
-                                            </ul>
-                                            <a class="wm-play-video" title="" data-rel="prettyPhoto" href="https://youtu.be/<?= $value->video ?>"><i class="flaticon-play"></i></a>
-                                            <h2><a href="<?= URL::base() ?>/site/programa?id=<?= $value->id ?>"><?= $value->titulo ?></a></h2>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <?php } ?>
-                                <!--<div class="wm-gallery-slide-layer">
-                                    <figure><a href="#"><img src="images/extra-images/gallery-slider-2.jpg" alt=""></a>
-                                        <figcaption>
-                                            <ul>
-                                                <li><a href="#" class="flaticon-link"></a></li>
-                                                <li><a href="#" class="flaticon-shapes"></a></li>
-                                                <li class="wm-gallery-tags"><a title="" data-rel="prettyPhoto" href="https://youtu.be/76TapKZ4_zM">Video</a></li>
-                                            </ul>
-                                            <a class="wm-play-video" title="" data-rel="prettyPhoto" href="https://youtu.be/76TapKZ4_zM"><i class="flaticon-play"></i></a>
-                                            <h2><a href="#">“Running From The Blows” Concert</a></h2>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <div class="wm-gallery-slide-layer">
-                                    <figure><a href="#"><img src="images/extra-images/gallery-slider-3.jpg" alt=""></a>
-                                        <figcaption>
-                                            <ul>
-                                                <li><a href="#" class="flaticon-link"></a></li>
-                                                <li><a href="#" class="flaticon-shapes"></a></li>
-                                                <li class="wm-gallery-tags"><a title="" data-rel="prettyPhoto" href="https://youtu.be/76TapKZ4_zM">Video</a></li>
-                                            </ul>
-                                            <a class="wm-play-video" title="" data-rel="prettyPhoto" href="https://youtu.be/76TapKZ4_zM"><i class="flaticon-play"></i></a>
-                                            <h2><a href="#">“Running From The Blows” Concert</a></h2>
-                                        </figcaption>
-                                    </figure>
-                                </div>-->
-                            </div>
+                        <div class="property-thumb-info-content">
+                            <h3><a href="property-detail.html">Alpine Rd, Stockton, CA 95215</a></h3>
+                            <p>Amet luctus nisl tempus.</p>
                         </div>
                     </div>
-                    <!--// Gallery Slider \\-->
-
-                    <!--// Band Members \\-->
-                    <div class="col-md-12 col-offset-2">
-                        <div class="wm-members-slider">
-                            <h2>Miembros del equipo</h2>
-                            <span class="wm-transparent-layer"></span>
-                            <div class="wm-members-slider-wrap">
-                                <?php $cont=0; ?>
-                                <?php foreach($colaboradores as $key => $value ){ ?>
-                                <?php $cont++; ?>
-                                <div class="wm-members-slide-layer">
-                                    <figure><a href="#"><img src="<?= URL::base() ?>/images/equipo/<?= $value->imagen ?>" alt=""></a>
-                                        <figcaption>
-                                            <div class="wm-members-caption">
-                                                <h2><a href="#"><?= $value->nombres ?></a></h2>
-                                                <span><?= $value->programa ?></span>
-                                                <div class="clearfix"></div>
-                                                <ul>
-                                                    <li><a href="#" class="flaticon-social-1"></a></li>
-                                                    <li><a href="#" class="flaticon-social-2"></a></li>
-                                                </ul>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <?php } ?>
-
-                            </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 animation">
+                <div class="pgl-property featured-item">
+                    <div class="property-thumb-info">
+                        <div class="property-thumb-info-image">
+                            <img alt="" class="img-responsive" src="<?= URL::base() ?>/images/properties/property-featured-2.jpg">
+                        </div>
+                        <div class="property-thumb-info-content">
+                            <h3><a href="property-detail.html">J St, Modesto, CA 95351</a></h3>
+                            <p>Amet luctus nisl tempus.</p>
                         </div>
                     </div>
-                    <!--// Band Members \\-->
-
-
-
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 animation">
+                <div class="pgl-property featured-item">
+                    <div class="property-thumb-info">
+                        <div class="property-thumb-info-image">
+                            <img alt="" class="img-responsive" src="<?= URL::base() ?>/images/properties/property-featured-3.jpg">
+                        </div>
+                        <div class="property-thumb-info-content">
+                            <h3><a href="property-detail.html">Spring Gate DrUNIT 4106</a></h3>
+                            <p>Amet luctus nisl tempus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 animation">
+                <div class="pgl-property featured-item">
+                    <div class="property-thumb-info">
+                        <div class="property-thumb-info-image">
+                            <img alt="" class="img-responsive" src="<?= URL::base() ?>/images/properties/property-featured-4.jpg">
+                        </div>
+                        <div class="property-thumb-info-content">
+                            <h3><a href="property-detail.html">Chatham St NW, Roanoke</a></h3>
+                            <p>Amet luctus nisl tempus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 animation">
+                <div class="pgl-property featured-item">
+                    <div class="property-thumb-info">
+                        <div class="property-thumb-info-image">
+                            <img alt="" class="img-responsive" src="<?= URL::base() ?>/images/properties/property-featured-5.jpg">
+                        </div>
+                        <div class="property-thumb-info-content">
+                            <h3><a href="property-detail.html">Stockton, CA 95215</a></h3>
+                            <p>Amet luctus nisl tempus.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <!--// Main Section \\-->
-
-        <!--// Main Section \\-->
-        <!--<div class="wm-main-section wm-tourfull">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6 no-padding">
-                        <figure class="wm-thumb-frame"><img src="images/extra-images/tour-thumb-bg.jpg" alt=""> <span class="wm-transparent-thumb"></span> </figure>
-                    </div>
-                    <div class="col-md-6 no-padding">
-
-                        <div class="wm-wrap-spacer">
-                            <div class="wm-tour-title-section">
-                                <div class="wm-title-area">
-                                    <span>Worldwide</span>
-                                    <h2>Next Tours</h2>
-                                </div>
-                                <a class="wm-event-viewbtn" href="#"><span>See All</span></a>
-                            </div>
-                            <div class="wm-tour wm-tour-list">
-                                <ul class="row">
-                                    <li class="col-md-12">
-                                        <time datetime="2008-02-14 20:00">25/05/16 <span>18:00</span></time>
-                                        <figure><a href="#"><img src="images/extra-images/tour-list-1.jpg" alt=""> <span class="wm-transparent-thumb"></span></a></figure>
-                                        <h2><a href="#">David Gilmour <br> Marlins Park, Miami, Florida</a></h2>
-                                        <div class="wm-tour-stock">
-                                            <span>$70.99</span>
-                                            <small>Few In Stock</small>
-                                        </div>
-                                        <a class="wm-tourbtn" href="#"><span><i class="flaticon-tool"></i> Buy</span></a>
-                                    </li>
-                                    <li class="col-md-12 wm-sold-tour">
-                                        <time datetime="2008-02-14 20:00">27/05/16 <span>20:00</span></time>
-                                        <figure><a href="#"><img src="images/extra-images/tour-list-2.jpg" alt=""> <span class="wm-transparent-thumb"></span></a></figure>
-                                        <h2><a href="#">Rolling Stones <br> Morumbi, São Paulo, Brazil</a></h2>
-                                        <div class="wm-tour-stock">
-                                            <span>$250.99</span>
-                                            <small>VIP Ticket</small>
-                                        </div>
-                                        <a class="wm-tourbtn" href="#"><span>Sold Out</span></a>
-                                    </li>
-                                    <li class="col-md-12 wm-cancelled-tour">
-                                        <time datetime="2008-02-14 20:00">01/06/16 <span>19:00</span></time>
-                                        <figure><a href="#"><img src="images/extra-images/tour-list-3.jpg" alt=""> <span class="wm-transparent-thumb"></span></a></figure>
-                                        <h2><a href="#">Iron Maiden <br> Tulsa, Oklahoma, USA</a></h2>
-                                        <div class="wm-tour-stock">
-                                            <span>$199.00</span>
-                                            <small>Today’s Deal</small>
-                                        </div>
-                                        <a class="wm-tourbtn" href="#"><span>Cancelled</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>-->
-        <!--// Main Section \\-->
-
-        <!--// Main Section \\-->
-        <!--<div class="wm-main-section wm-featured-albumfull">
-            <div class="container">
-                <div class="row">-->
-
-                    <!--// Item Information \\-->
-                    <!--<div class="col-md-4">
-                        <div class="wm-item-info">
-                            <span>Discography</span>
-                            <h2>Featured Albums</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitami. Phasellus vulputate eta ex eget feugiat. Cras eget odiom et sapien. Ut ius sit amet.</p>
-                            <a class="wm-event-viewbtn" href="#"><span>View All</span></a>
-                        </div>
-                    </div>-->
-                    <!--// Item Information \\-->
-
-                    <!--// Featured Album \\-->
-                    <!--<div class="col-md-8">
-                        <div class="wm-album wm-featured-album">
-                            <ul class="row">
-                                <li class="col-md-4">
-                                    <figure><a href="#"><img src="images/extra-images/featured-album-1.jpg" alt=""></a> <span class="wm-album-category">New Album</span>
-                                        <a href="#" class="wm-featured-album-hover"><i class="flaticon-music"></i></a>
-                                    </figure>
-                                    <div class="wm-featured-album-text">
-                                        <p>Summary: The third full-length release for the sister duo was produced by Paul Mahern.</p>
-                                        <div class="wm-album-time">
-                                            <time datetime="2008-02-14 20:00">26/02/2016</time>
-                                            <a href="#" class="wm-track-btn">12 Tracks</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-4 wm-featuredalbum">
-                                    <figure><a href="#"><img src="images/extra-images/featured-album-2.jpg" alt=""></a> <span class="wm-album-category">Featured Album</span>
-                                        <a href="#" class="wm-featured-album-hover"><i class="flaticon-music"></i></a>
-                                    </figure>
-                                    <div class="wm-featured-album-text">
-                                        <p>Summary: The latest release from the British rock band was acoustic and live recorded  in one day.</p>
-                                        <div class="wm-album-time">
-                                            <time datetime="2008-02-14 20:00">13/01/2016</time>
-                                            <a href="#" class="wm-track-btn">14 Tracks</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-4 wm-freealbum">
-                                    <figure><a href="#"><img src="images/extra-images/featured-album-3.jpg" alt=""></a> <span class="wm-album-category">Free Album</span>
-                                        <a href="#" class="wm-featured-album-hover"><i class="flaticon-music"></i></a>
-                                    </figure>
-                                    <div class="wm-featured-album-text">
-                                        <p>Summary: The electronic artist worked with Vampire Weekend's Rostam Bat on her third full-length release.</p>
-                                        <div class="wm-album-time">
-                                            <time datetime="2008-02-14 20:00">02/01/2016</time>
-                                            <a href="#" class="wm-track-btn">9 Tracks</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>-->
-                    <!--// Featured Album \\-->
-
-                <!--</div>
-            </div>
-        </div>-->
-        <!--// Main Section \\-->
-
-        <!--// Main Section \\-->
-        <div class="wm-main-section wm-element-holder-full2">
-            <div class="container-fluid">
-                <div class="row">
-
-                    <!--// Update Blog \\-->
-                    <!--<div class="col-md-6 no-padding">
-                        <div class="wm-update-bloglist">
-
-                            <div class="wm-update-title-area">
-                                <div class="wm-left-section"><span>Our Blog</span> <h2>News & Updates</h2></div>
-                                <a class="wm-event-viewbtn" href="#"><span>See All</span></a>
-                            </div>
-
-                            <div class="wm-update-blog-wrap">
-                                <figure><a href="#"><img src="images/extra-images/update-blog-1.jpg" alt=""></a></figure>
-                                <div class="wm-update-info">
-                                    <h2><a href="#">Brand of bluegrass infused jams to the Wilma</a></h2>
-                                    <ul class="wm-update-blog-options">
-                                        <li>25/02/16</li>
-                                        <li>4 comm</li>
-                                        <li><a href="#">345 views</a></li>
-                                    </ul>
-                                    <p>Railroad Earth brought their own brand of bluegrass infused jams to the Wilma this past Thursday. After a three-year hiatus from the high mountain town it was cooler than... <a href="#" class="wm-color-one">Read More</a></p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>-->
-                    <!--// Update Blog \\-->
-
-                    <!--// Our Store \\-->
-                    <!--<div class="col-md-10 no-padding">
-                        <div class="wm-store-wrap">
-                            <div class="wm-check-store">
-                                <h2>Check Our Store</h2>
-                                <div class="wm-store-slider">
-
-                                    <div class="wm-store-slide-layer">
-                                        <figure><a href="#"><img src="images/extra-images/check-store-1.jpg" alt=""></a>
-                                            <figcaption>
-                                                <div class="wm-storebtn">
-                                                    <a title="Add To Cart" href="#"><span><i class="flaticon-tool"></i></span></a>
-                                                    <a title="Read More Details" href="#"><span><i class="flaticon-link"></i></span></a>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="wm-ourstore-text">
-                                            <small>Accessories</small>
-                                            <span>$9.99</span>
-                                            <ul>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                            </ul>
-                                            <h2><a href="#">Bag Men’s Ware Music Beat</a></h2>
-                                        </div>
-                                    </div>
-                                    <div class="wm-store-slide-layer">
-                                        <figure><a href="#"><img src="images/extra-images/check-store-2.jpg" alt=""></a>
-                                            <figcaption>
-                                                <div class="wm-storebtn">
-                                                    <a title="Add To Cart" href="#"><span><i class="flaticon-tool"></i></span></a>
-                                                    <a title="Read More Details" href="#"><span><i class="flaticon-link"></i></span></a>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="wm-ourstore-text">
-                                            <small>Body Spray</small>
-                                            <span>$5.99</span>
-                                            <ul>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                            </ul>
-                                            <h2><a href="#">Music Beat Body Sprays</a></h2>
-                                        </div>
-                                    </div>
-                                    <div class="wm-store-slide-layer">
-                                        <figure><a href="#"><img src="images/extra-images/check-store-3.jpg" alt=""></a>
-                                            <figcaption>
-                                                <div class="wm-storebtn">
-                                                    <a title="Add To Cart" href="#"><span><i class="flaticon-tool"></i></span></a>
-                                                    <a title="Read More Details" href="#"><span><i class="flaticon-link"></i></span></a>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="wm-ourstore-text">
-                                            <small>Clothing Apparel</small>
-                                            <span>$12.99</span>
-                                            <ul>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                            </ul>
-                                            <h2><a href="#">Men’s T-shirt Music Beat</a></h2>
-                                        </div>
-                                    </div>
-                                    <div class="wm-store-slide-layer">
-                                        <figure><a href="#"><img src="images/extra-images/check-store-2.jpg" alt=""></a>
-                                            <figcaption>
-                                                <div class="wm-storebtn">
-                                                    <a title="Add To Cart" href="#"><span><i class="flaticon-tool"></i></span></a>
-                                                    <a title="Read More Details" href="#"><span><i class="flaticon-link"></i></span></a>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="wm-ourstore-text">
-                                            <small>Body Spray</small>
-                                            <span>$5.99</span>
-                                            <ul>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                                <li><a class="flaticon-technology" href="#"></a></li>
-                                            </ul>
-                                            <h2><a href="#">Music Beat Body Sprays</a></h2>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                    <!--// Our Store \\-->
-
-                    <!--// Footer \\-->
-                    <footer id="wm-footer" class="footer-one">
-
-                        <!--// Footer Widget's \\-->
-                        <div class="wm-footer-newslatter">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="wm-footer-title"><h2>Boletines</h2></div>
-                                        <p>Únete a nuestra lista de correo y recibe notificaciones cuando grabemos nuevos episodios.</p>
-                                        <ul>
-                                            <li><a target="_blank" href="https://www.facebook.com/Radiobabelatino/" class="flaticon-social-1"></a></li>
-                                            <li><a target="_blank" href="https://twitter.com/JPatriciaSosa" class="flaticon-social-2"></a></li>
-                                            <li><a target="_blank" href="https://www.instagram.com/jeanneth_sosa/" class="fa fa-instagram"></a></li>
-                                            <li><a target="_blank" href="https://www.youtube.com/results?search_query=babelatino" class="fa fa-youtube"></a></li>
-                                            <li><a target="_blank" href="https://www.linkedin.com/in/jeanneth-patricia-sosa-33646618/" class="fa fa-linkedin"></a></li>
-                                        </ul>
-                                        <div class="clearfix"></div>
-                                        <form>
-                                            <input type="text" value="Su correo electrónico" onblur="if(this.value == '') { this.value ='Su correo electrónico'; }" onfocus="if(this.value =='Su correo electrónico') { this.value = ''; }">
-                                            <input type="submit" value="Subscribe">
-                                        </form>
-                                    </div>
-                                    <div class="col-md-12 wm-copyrights-section"><p>© 2023 Babelatino, Todos los derechos <a href="#">Reservados</a> - by <a href="#">Acepsistemas</a></p></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--// Footer Widget's \\-->
-
-                    </footer>
-                    <!--// Footer \\-->
-
-                </div>
-            </div>
-        </div>
-        <!--// Main Section \\-->
-
+        <hr class="top-tall">
     </div>
-    <!--// Main Content \\-->
+</section>
+<!-- End Featured -->
+    <!-- Begin Agents -->
+    <section class="pgl-agents">
+        <div class="container">
+            <h2>Our Agents</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="pgl-agent-item pgl-bg-light">
+                        <div class="row pgl-midnarrow-row">
+                            <div class="col-xs-5">
+                                <div class="img-thumbnail-medium">
+                                    <a href="agentprofile.html"><img src="<?= URL::base() ?>/images/agents/temp-agent.png" class="img-responsive" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="pgl-agent-info">
+                                    <small>NO.1</small>
+                                    <h4><a href="agentprofile.html">John Smith</a></h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum nisi eu ante mattis.</p>
+                                    <address>
+                                        <i class="fa fa-map-marker"></i> Office : 1-800-666-8888<br>
+                                        <i class="fa fa-phone"></i> Mobile : 0800-666-6666<br>
+                                        <i class="fa fa-fax"></i> Fax : 1-800-666-8888<br>
+                                        <i class="fa fa-envelope-o"></i> Mail: <a href="mailto:JohnSmith@gmail.com">JohnSmith@gmail.com</a>
+                                    </address>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="pgl-agent-item pgl-bg-light">
+                        <div class="row pgl-midnarrow-row">
+                            <div class="col-xs-5">
+                                <div class="img-thumbnail-medium">
+                                    <a href="agentprofile.html"><img src="<?= URL::base() ?>/images/agents/temp-agent.png" class="img-responsive" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="pgl-agent-info">
+                                    <small>NO.2.1</small>
+                                    <h4><a href="agentprofile.html">Andrew MCCarthy</a></h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum nisi eu ante mattis.</p>
+                                    <address>
+                                        <i class="fa fa-map-marker"></i> Office : 1-800-666-8888<br>
+                                        <i class="fa fa-phone"></i> Mobile : 0800-666-6666<br>
+                                        <i class="fa fa-fax"></i> Fax : 1-800-666-8888<br>
+                                        <i class="fa fa-envelope-o"></i> Mail: <a href="mailto:MCCarthy@gmail.com">MCCarthy@gmail.com</a>
+                                    </address>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="top-tall">
+        </div>
+    </section>
+    <!-- End Agents -->
 
-    <div class="clearfix"></div>
+    <!-- Begin About -->
+    <section class="pgl-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 animation about-item">
+                    <h2>Who We Are</h2>
+                    <p><img src="<?= URL::base() ?>/images/content/demo-1.jpg" alt="" class="img-responsive"></p>
+                    <p>We have a total of 25+ years combined experience dealing exclusively with New York buyers and sellers ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="about-us.html" class="btn btn-lg btn-default">View more</a>
+                </div>
+                <div class="col-md-4 animation about-item">
+                    <h2>Why Choose Us</h2>
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default pgl-panel">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Designed for your business</a> </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <p>Sed perspiciatis unde omnisiste natus error voluptatem remopa accusantium doloremque laudantium, totam rem aperiam.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default pgl-panel">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed">Fully responsive</a> </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body"> <p>Sed perspiciatis unde omnisiste natus error voluptatem remopa accusantium doloremque laudantium, totam rem aperiam.</p> </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default pgl-panel">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed">Ample customizations</a> </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>Sed perspiciatis unde omnisiste natus error voluptatem remopa accusantium doloremque laudantium, totam rem aperiam.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default pgl-panel">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseFouth" class="collapsed">Bootstrap Compatible</a> </h4>
+                            </div>
+                            <div id="collapseFouth" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>Sed perspiciatis unde omnisiste natus error voluptatem remopa accusantium doloremque laudantium, totam rem aperiam.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default pgl-panel">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" class="collapsed">Unique Design</a> </h4>
+                            </div>
+                            <div id="collapseFive" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>Sed perspiciatis unde omnisiste natus error voluptatem remopa accusantium doloremque laudantium, totam rem aperiam.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animation about-item">
+                    <h2>Happy Clients</h2>
+                    <div class="owl-carousel pgl-bg-dark pgl-testimonial" data-plugin-options='{"items": 1, "pagination": false, "autoHeight": true}'>
+                        <div class="col-md-12">
+                            <div class="testimonial-author">
+                                <div class="img-thumbnail-small img-circle">
+                                    <img src="<?= URL::base() ?>/images/agents/agent-1.jpg" class="img-circle" alt="Andrew MCCarthy">
+                                </div>
+                                <h4>Andrew MCCarthy</h4>
+                                <p><strong>Selller</strong></p>
+                            </div>
+                            <div class="divider-quote-sign"><span>“</span></div>
+                            <blockquote class="testimonial">
+                                <p>Sed perspiciatis unde omnisiste natus error voluptatem remopa accusantium doloremque laudantium totam rem.</p>
+                            </blockquote>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="testimonial-author">
+                                <div class="img-thumbnail-small img-circle">
+                                    <img src="<?= URL::base() ?>/images/agents/agent-1.jpg" class="img-circle" alt="John Smith">
+                                </div>
+                                <h4>John Smith</h4>
+                                <p><strong>Selller</strong></p>
+                            </div>
+                            <div class="divider-quote-sign"><span>“</span></div>
+                            <blockquote class="testimonial">
+                                <p>Sed perspiciatis unde omnisiste natus error voluptatem remopa accusantium doloremque laudantium totam rem.</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End About -->
 </div>
-<!--// Main Wrapper \\-->
+<!-- End Main -->
