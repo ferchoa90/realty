@@ -125,46 +125,38 @@ $menus= Menu::find()->where(["estatus"=>"ACTIVO","idparent"=>0,"isDeleted"=>0])-
             <div class="pgl-upper-foot">
                 <div class="row">
                     <div class="col-sm-4">
-                        <h2>Contact detail</h2>
-                        <p>Pellentesque nec erat. Aenean semper, neque non faucis. Malesuada, dui felis tempor felis, vel varius ante diam ut mauris.</p>
+                        <h2>Realty Ecuador</h2>
+                        <p>Nuestros datos de contacto son los siguientes: </p>
                         <address>
-                            <i class="fa fa-map-marker"></i> Office : 1-800-666-8888<br>
-                            <i class="fa fa-phone"></i> Mobile : 0800-666-6666<br>
-                            <i class="fa fa-fax"></i> Fax : 1-800-666-8888<br>
-                            <i class="fa fa-envelope-o"></i> Mail: <a href="mailto:pixelgeklab@gmail.com">Pixelgeklab@gmail.com</a>
+                            <i class="fa fa-map-marker"></i> Oficina : (593) 02 123 4567<br>
+                            <i class="fa fa-phone"></i> Móvil : 09 5555555<br>
+                            <i class="fa fa-envelope-o"></i> Correo : <a href="mailto:ventas@realtyecuador.com">ventas@realtyecuador.com</a>
                         </address>
                     </div>
                     <div class="col-sm-2">
-                        <h2>Useful links</h2>
+                        <h2>MENÚ</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#">Help and FAQs</a></li>
-                            <li><a href="#">Home Price</a></li>
-                            <li><a href="#">Market View</a></li>
-                            <li><a href="#">Free Credit Report</a></li>
-                            <li><a href="#">Terms and Conditions</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Community Guidelines</a></li>
+                            <li><a href="#">Inicio</a></li>
+                            <li><a href="#">Quienes Somos</a></li>
+                            <li><a href="#">Agentes</a></li>
+                            <li><a href="#">Preguntas</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-2">
-                        <h2>Pages</h2>
+                        <h2>&nbsp;</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#">Font &amp; Color</a></li>
-                            <li><a href="#">Blogs</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">404 Page</a></li>
-                            <li><a href="#">Advanced Search</a></li>
-                            <li><a href="#">Property Custom Field</a></li>
-                            <li><a href="#">Google Map</a></li>
+                            <li><a href="#">Contáctenos</a></li>
+                            <li><a href="#">Politicas</a></li>
+                            <li><a href="#">Ley de protección de datos</a></li>
                         </ul>
                     </div>
-                    <div class="col-sm-4">
-                        <h2>Don’t miss out</h2>
-                        <p>In venenatis neque a eros laoreet eu placerat erat suscipit. Fusce cursus, erat ut scelerisque condimentum, quam odio ultrices leo.</p>
+                    <div class="col-sm-3">
+                        <h2>Suscribirse</h2>
+                        <p>Suscríbete a nuestros boletines electrónicos.</p>
                         <form class="form-inline pgl-form-newsletter" role="form">
                             <div class="form-group">
-                                <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter your email here">
+                                <label class="sr-only w-100" for="exampleInputEmail2">Correo electrónico</label>
+                                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Ingrese su correo electrónico">
                             </div>
                             <button type="submit" class="btn btn-submit"><i class="icons icon-submit"></i></button>
                         </form>
@@ -172,7 +164,7 @@ $menus= Menu::find()->where(["estatus"=>"ACTIVO","idparent"=>0,"isDeleted"=>0])-
                 </div>
             </div>
             <div class="pgl-copyrights">
-                <p>Copyright © 2014 RealEstast. Designed by <a href="http://pixelgeeklab.com/">PixelGeekLab</a></p>
+                <p>Copyright © 2024 Realty Ecuador. Desarrollado y diseñado por <a href="http://acepsistemas.com/">Acepsistemas</a></p>
             </div>
         </div>
     </footer>

@@ -10,3 +10,14 @@
     background: rgb(152,9,9);
     background: radial-gradient(circle, rgba(152,9,9,1) 0%, rgba(162,5,5,1) 20%, rgba(128,1,1,1) 100%);
 }
+
+.titulo-h2
+{
+    font-size: 25px;
+}
+
+.imagen-clientesatisfecho
+{
+    width: 100%;
+    max-width : 110px;
+}
