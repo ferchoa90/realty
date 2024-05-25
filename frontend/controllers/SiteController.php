@@ -1,5 +1,12 @@
 <?php
 namespace frontend\controllers;
+use common\models\Clientesfelices;
+use common\models\Colaboradores;
+use common\models\Pais;
+use common\models\Propiedades;
+use common\models\Provincia;
+use common\models\Ciudad;
+use common\models\Tipobien;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -80,8 +87,30 @@ class SiteController extends Controller
         /*if (Yii::$app->user->isGuest) {
             return $this->redirect(URL::base() . "/site/login");
         }*/
+        $colaboradores= Colaboradores::find()->where(["isDeleted" => 0])->all();
+        $pais= Pais::find()->where(["isDeleted" => 0])->all();
+        $provincia= Provincia::find()->where(["isDeleted" => 0])->all();
+        $ciudad= Ciudad::find()->where(["isDeleted" => 0])->all();
+        $tipobien= Tipobien::find()->where(["isDeleted" => 0])->all();
+        $propiedaddestacado= Propiedades::find()->where(["isDeleted" => 0])->one();
+        $propiedades= Propiedades::find()->where(["isDeleted" => 0]);
+        $clientessatisfechos= Clientesfelices::find()->where(["isDeleted" => 0, "estatus" => "ACTIVO"])->all();
+        if ($propiedaddestacado)
+        {
+            $propiedades = $propiedades->andWhere("id <> ".$propiedaddestacado->id)->all();
+        }
 
-        return $this->render('index');
+        return $this->render('index', [
+            'pais' =>$pais,
+            'provincia' =>$provincia,
+            'ciudad' =>$ciudad,
+            'tipobien' =>$tipobien,
+            'colaboradores' =>$colaboradores,
+            'propiedaddestacado' =>$propiedaddestacado,
+            'propiedades' =>$propiedades,
+            'clientessatisfechos' =>$clientessatisfechos,
+            // 'entregasdetalle' => Diariodetalle::find()->where(['diario' => $entregas->diario, "isDeleted" => 0])->all(),
+        ]);
     }
 
     public function actionQuienessomos()

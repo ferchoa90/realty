@@ -18,224 +18,178 @@ use common\models\Menu;
 $menus= Menu::find()->where(["estatus"=>"ACTIVO","idparent"=>0,"isDeleted"=>0])->orderby(['orden'=>SORT_ASC])->all();
 
 ?>
-
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
-    <meta name="description" content="Radio Babelatino">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="<?= URL::base() ?>/images/favicon.ico" type="image/x-icon">
-    <meta name="author" content="">
-    <title>BABELATINO</title>
 
-    <!-- Css Files -->
-    <link href="<?= URL::base() ?>/css/bootstrap.css" rel="stylesheet">
-    <link href="<?= URL::base() ?>/css/font-awesome.css" rel="stylesheet">
-    <link href="<?= URL::base() ?>/css/flaticon.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    <link href="<?= URL::base() ?>/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+    <!-- Libs CSS -->
+    <link href="<?= URL::base() ?>/css/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= URL::base() ?>/vendor/owl-carousel/owl.carousel.css" media="screen">
+    <link rel="stylesheet" href="<?= URL::base() ?>/vendor/owl-carousel/owl.theme.css" media="screen">
+    <link rel="stylesheet" href="<?= URL::base() ?>/vendor/flexslider/flexslider.css" media="screen">
+    <link rel="stylesheet" href="<?= URL::base() ?>/vendor/chosen/chosen.css" media="screen">
+
+    <!-- Theme -->
+    <link href="<?= URL::base() ?>/css/theme-animate.css" rel="stylesheet">
+    <link href="<?= URL::base() ?>/css/theme-elements.css" rel="stylesheet">
+    <link href="<?= URL::base() ?>/css/theme-blog.css" rel="stylesheet">
+    <link href="<?= URL::base() ?>/css/theme-map.css" rel="stylesheet">
+    <link href="<?= URL::base() ?>/css/theme.css" rel="stylesheet">
+
     <link href="<?= URL::base() ?>/css/style.css" rel="stylesheet">
-    <link href="<?= URL::base() ?>/css/color.css" rel="stylesheet">
-    <link href="<?= URL::base() ?>/css/color-one.css" rel="stylesheet">
-    <link href="<?= URL::base() ?>/css/color-two.css" rel="stylesheet">
-    <link href="<?= URL::base() ?>/css/slick-slider.css" rel="stylesheet">
-    <link href="<?= URL::base() ?>/css/prettyphoto.css" rel="stylesheet">
-    <link href="<?= URL::base() ?>/css/jplayer.css" rel="stylesheet">
-    <link href="<?= URL::base() ?>/css/responsive.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- Theme Responsive-->
+    <link href="<?= URL::base() ?>/css/theme-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!--<script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-92085539-1');
-    </script>-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <?php $this->head() ?>
 </head>
 
-<div class="wm-main-wrapper">
-
-    <!--// Header \\-->
-    <header id="wm-header" class="wm-header-one">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3"><a href="/" class="wm-logo"><img style="width: 130px;height: 37px;" src="<?= URL::base() ?>/images/BABELATINO.svg" alt=""></a></div>
-                <div class="col-md-9">
-
-                    <!--// Plugin Section \\-->
-                    <div class="wm-plugin-section">
-                        <form class="wm-search">
-                            <i class="flaticon-search"></i>
-                            <input type="text" value="Buscar..." onblur="if(this.value == '') { this.value ='Buscar...'; }" onfocus="if(this.value =='Buscar...') { this.value = ''; }">
-                            <input type="submit" value="">
-                        </form>
-                        <div class="wm-right-section">
-                            <div class="wm-language">
-                                <ul>
-                                    <li><a href="#">ES <i class="flaticon-arrows"></i></a></li>
-
-                                </ul>
-                            </div>
-                            <div class="wm-language" style="padding-left:10px;">
-                                <ul>
-                                    <li style="padding-left:10px;"><a target="_blank" href="https://www.facebook.com/Radiobabelatino/" class="flaticon-social-1"></a></li>
-                                    <li style="padding-left:10px;"><a target="_blank" href="https://twitter.com/JPatriciaSosa" class="flaticon-social-2"></a></li>
-                                    <li style="padding-left:10px;"><a target="_blank" href="https://www.instagram.com/jeanneth_sosa/" class="fa fa-instagram"></a></li>
-                                    <li style="padding-left:10px;"><a target="_blank" href="https://www.youtube.com/results?search_query=babelatino" class="fa fa-youtube"></a></li>
-                                    <li style="padding-left:10px;"><a target="_blank" href="https://www.linkedin.com/in/jeanneth-patricia-sosa-33646618/" class="fa fa-linkedin"></a></li>
-                                </ul>
-                            </div>
-                            <!-- <a href="#" class="wm-cart"><i class="flaticon-tool"></i> <span>0</span></a> -->
-                            <div class="wm-cart-box">
-                                <h2>3 items in the cart</h2>
-                                <ul>
-                                    <li id="wmremove1">
-                                        <figure><a href="#"><img src="images/extra-images/cartbox-1.jpg" alt=""></a></figure>
-                                        <div class="wm-cartbox-text">
-                                            <h6><a href="#">1 x Golden Trumpet</a></h6>
-                                            <div class="wm-rating"><span class="wm-rating-box" style="width:45%"></span></div>
-                                            <small>$32.00</small>
-                                            <a href="#" class="wm-close-cart" id="wmbtnremove1"><i class="fa fa-times"></i></a>
-                                        </div>
-                                    </li>
-                                    <li id="wmremove2">
-                                        <figure><a href="#"><img src="images/extra-images/cartbox-2.jpg" alt=""></a></figure>
-                                        <div class="wm-cartbox-text">
-                                            <h6><a href="#">2 x Electric Guitar</a></h6>
-                                            <div class="wm-rating"><span class="wm-rating-box" style="width:45%"></span></div>
-                                            <small>$43.99</small>
-                                            <a href="#" class="wm-close-cart" id="wmbtnremove2"><i class="fa fa-times"></i></a>
-                                        </div>
-                                    </li>
-                                    <li id="wmremove3">
-                                        <figure><a href="#"><img src="images/extra-images/cartbox-3.jpg" alt=""></a></figure>
-                                        <div class="wm-cartbox-text">
-                                            <h6><a href="#">1 x Bass Amps</a></h6>
-                                            <div class="wm-rating"><span class="wm-rating-box" style="width:45%"></span></div>
-                                            <small>$89.99</small>
-                                            <a href="#" class="wm-close-cart" id="wmbtnremove3"><i class="fa fa-times"></i></a>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <p>Subtotal <span>$165.98</span></p>
-                                <div class="wm-cart-link"><a href="#" class="wm-cartbox-btn"><i class="flaticon-tool"></i> checkout</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--// Plugin Section \\-->
-
-                    <!--// Navigation \\-->
-                    <nav class="navbar navbar-default">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="true">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-                                <?php $cont=0; ?>
-                                <?php foreach($menus as $key => $value ){ ?>
-                                    <?php $cont++; ?>
-                                    <?php $submenu= Menu::find()->where(["estatus"=>"ACTIVO","idparent"=>$value->id,"isDeleted"=>0])->orderby(['orden'=>SORT_ASC])->all(); ?>
-
-                                    <?php if($submenu){ ?>
-                                        <li class="<?php if($cont==1){ echo 'active'; } ?>"><a href="#"><?= $value->menu ?></a>
-                                        <ul class="wm-dropdown-menu">
-                                        <?php foreach($submenu as $keyS => $valueS ){ ?>
-                                            <li><a href="<?= URL::base() ?>/<?=$valueS->link ?>"><?=$valueS->menu ?></a></li>
-                                        <?php } ?>
-                                        </ul>
-                                    <?php }else{ ?>
-                                        <li class="<?php if($cont==1){ echo 'active'; } ?>"><a href="<?= URL::base() ?>/<?= $value->link ?>"><?= $value->menu ?></a>
-                                    <?php } ?>
-                                    </li>
-                                <?php } ?>
-                            </ul>
-                        </div>
-                    </nav>
-                    <!--// Navigation \\-->
-
-                </div>
+<body>
+<div id="page">
+    <header>
+        <div id="top">
+            <div class="container">
+                <p class="pull-left text-note hidden-xs"><i class="fa fa-phone"></i> Más información? (09) 82840034</p>
+                <ul class="nav nav-pills nav-top navbar-right">
+                    <li class="login"><a href="javascript:void(0);"><i class="fa fa-user"></i></a></li>
+                    <li><a href="#" title="" data-placement="bottom" data-toggle="tooltip" data-original-title="Email"><i class="fa fa-envelope-o"></i></a></li>
+                    <li><a href="#" title="" data-placement="bottom" data-toggle="tooltip" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" title="" data-placement="bottom" data-toggle="tooltip" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#" title="" data-placement="bottom" data-toggle="tooltip" data-original-title="Google+"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
             </div>
         </div>
+        <nav class="navbar navbar-default pgl-navbar-main" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <a class="logo" href="index.html"><img src="<?= URL::base() ?>/images/general/Logo-Realty-Ecuador-blanco.png" alt="Flatize"></a> </div>
+
+                <div class="navbar-collapse collapse width">
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown active"><a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">INICIO</a>
+                        </li>
+                        <li ><a href="about-us.html">QUIENES SOMOS</a>
+                        </li>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">AGENTES</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="ouragents.html">Realtys</a></li>
+                                <li><a href="agentprofile.html">Perfiles de Agentes</a></li>
+                            </ul>
+                        </li>
+
+                        <li ><a href="#" >Preguntas</a>
+
+                        </li>
+                        <li><a href="contact.html">Contáctenos</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+        </nav>
     </header>
-    <!--// Header \\-->
 
-<body>
-<?php $this->beginBody() ?>
-<!--
-<div class="wrap">
-    <div class="container">-->
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-
-<!-- Page Wrapper -->
-        <?= $content ?>
-<!--    </div>
 </div>
- -->
 
-<!-- jQuery (necessary for JavaScript plugins) -->
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/jquery.js"></script>
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/modernizr.js"></script>
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/jquery-ui.js"></script>
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/bootstrap.min.js"></script>
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/jquery.prettyphoto.js"></script>
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/jquery.countdown.min.js"></script>
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/fitvideo.js"></script>
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/skills.js"></script>
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/slick.slider.min.js"></script>
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/jquery.jplayer.js"></script>
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/jplayer.playlist.js"></script>
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/jquery.nicescroll.min.js"></script>
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/moment.min.js"></script>
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/fullcalendar.min.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/waypoints-min.js"></script>
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/isotope.min.js"></script>
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/functions.js"></script>
-<script type="text/javascript" src="<?= URL::base() ?>/js/script/jplayer.functions.js"></script>
-
-<?php $this->endBody() ?>
-
- <footer>
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">¿Desea salir?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
+<div id="page">
+        <?php $this->beginBody() ?>
+        <div>
+            <?=$content ?>
         </div>
-        <div class="modal-body">¿Esta seguro de cerrar sesión?</div>
-        <div class="modal-footer">
-          <button class="btn btn-sm btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn  btn-sm btn-primary" href="/frontend/web/site/logout">Cerrar sesión</a>
+
+        <?php $this->endBody() ?>
+
+    <!-- Begin footer -->
+    <footer class="pgl-footer">
+        <div class="container">
+            <div class="pgl-upper-foot">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h2>Realty Ecuador</h2>
+                        <p>Nuestros datos de contacto son los siguientes: </p>
+                        <address>
+                            <i class="fa fa-map-marker"></i> Oficina : (593) 02 123 4567<br>
+                            <i class="fa fa-phone"></i> Móvil : 09 5555555<br>
+                            <i class="fa fa-envelope-o"></i> Correo : <a href="mailto:ventas@realtyecuador.com">ventas@realtyecuador.com</a>
+                        </address>
+                    </div>
+                    <div class="col-sm-2">
+                        <h2>MENÚ</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Inicio</a></li>
+                            <li><a href="#">Quienes Somos</a></li>
+                            <li><a href="#">Agentes</a></li>
+                            <li><a href="#">Preguntas</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-2">
+                        <h2>&nbsp;</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Contáctenos</a></li>
+                            <li><a href="#">Politicas</a></li>
+                            <li><a href="#">Ley de protección de datos</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3">
+                        <h2>Suscribirse</h2>
+                        <p>Suscríbete a nuestros boletines electrónicos.</p>
+                        <form class="form-inline pgl-form-newsletter" role="form">
+                            <div class="form-group">
+                                <label class="sr-only w-100" for="exampleInputEmail2">Correo electrónico</label>
+                                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Ingrese su correo electrónico">
+                            </div>
+                            <button type="submit" class="btn btn-submit"><i class="icons icon-submit"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="pgl-copyrights">
+                <p>Copyright © 2024 Realty Ecuador. Desarrollado y diseñado por <a href="http://acepsistemas.com/">Acepsistemas</a></p>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</footer>
+    </footer>
+    <!-- End footer -->
+
+</div>
+
 </body>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="<?= URL::base() ?>/vendor/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="<?= URL::base() ?>/bootstrap/js/bootstrap.min.js"></script>
+<script src="<?= URL::base() ?>/vendor/owl-carousel/owl.carousel.js"></script>
+<script src="<?= URL::base() ?>/vendor/flexslider/jquery.flexslider-min.js"></script>
+<script src="<?= URL::base() ?>/vendor/chosen/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&amp;sensor=true"></script>
+<script src="<?= URL::base() ?>/vendor/gmap/gmap3.infobox.min.js"></script>
+<script src="<?= URL::base() ?>/vendor/masonry/imagesloaded.pkgd.min.js"></script>
+<script src="<?= URL::base() ?>/vendor/masonry/masonry.pkgd.min.js"></script>
+
+<!-- Theme Initializer -->
+<script src="<?= URL::base() ?>/js/theme.plugins.js"></script>
+<script src="<?= URL::base() ?>/js/theme.js"></script>
 </html>
 
 <?php $this->endPage() ?>
