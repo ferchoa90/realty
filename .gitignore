@@ -10,3 +10,5 @@ vendor/*
 backend/web/audio/
 backend/web/audio/*
 ./composer.bat
+.user.ini
+.htaccess
